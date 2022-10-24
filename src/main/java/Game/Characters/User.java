@@ -1,4 +1,4 @@
 package Game.Characters;
 
-public interface User {
+public interface User extends Character<User>{
 }

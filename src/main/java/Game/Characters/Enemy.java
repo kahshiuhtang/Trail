@@ -1,4 +1,5 @@
 package Game.Characters;
 
-public interface Enemy{
+public interface Enemy extends Character<Enemy> {
+
 }
