@@ -6,5 +6,17 @@ public enum LandBiome implements Land{
     DESERT(),
     GRASSLANDS(),
     TUNDRA(),
-    RAINFOREST(),
+    RAINFOREST();
+
+    private int walkSpeed, danger;
+
+    @Override
+    public int getWalkSpeed() {
+        return walkSpeed;
+    }
+
+    @Override
+    public int getDanger() {
+        return danger;
+    }
 }
