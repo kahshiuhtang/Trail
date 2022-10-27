@@ -1,18 +1,17 @@
 package Game.Map;
 
 public enum WaterBiome implements Water{
-    RIVER(-1, 0.2),
-    LAKE(1, 0.1),
-    OCEAN(-2, 0.4);
-    private final int travelSpeed;
-    private final double danger;
-    WaterBiome(int speed, double danger){
+    RIVER(0.5, 0.2),
+    LAKE(0.8, 0.1),
+    OCEAN(0.3, 0.3);
+    private final double danger, travelSpeed;
+    WaterBiome(double speed, double danger){
         this.travelSpeed = speed;
         this.danger = danger;
     }
 
     @Override
-    public int getWalkSpeed() {
+    public double getWalkSpeed() {
         return travelSpeed;
     }
 

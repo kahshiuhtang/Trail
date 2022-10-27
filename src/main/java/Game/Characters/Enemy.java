@@ -1,8 +1,10 @@
 package Game.Characters;
 
 import Game.Items.Item;
+import Game.Map.Square;
 
 public interface Enemy extends Character<Enemy> {
+
 
     /*
      *  Odds of enemy spawning in the biome it is assigned to
@@ -19,7 +21,7 @@ public interface Enemy extends Character<Enemy> {
     /*
      * When does the boss start seeing the character
      */
-   public boolean getVision();
+   public double getVision();
 
     public Item<? extends Item<?>>[] drops();
 

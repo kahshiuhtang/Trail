@@ -5,7 +5,7 @@ import Game.Items.Weapon;
 public class Sword implements Weapon<Sword> {
     private final boolean equipped, booster;
     private final int storageSize;
-    private final double damageBoost, critChance, boost;
+    private final double damageBoost, critChance, boost, rarity;
     public Sword(){
         equipped = false;
         booster = false;
@@ -13,6 +13,7 @@ public class Sword implements Weapon<Sword> {
         damageBoost = 4.0;
         critChance = 0.3;
         boost = 1.5;
+        rarity = 0.3;
     }
     @Override
     public boolean getEquipped() {
@@ -25,7 +26,7 @@ public class Sword implements Weapon<Sword> {
     }
 
     @Override
-    public Weapon getItem() {
+    public Sword getItem() {
         return new Sword();
     }
 
@@ -37,6 +38,11 @@ public class Sword implements Weapon<Sword> {
     @Override
     public double getCritChance() {
         return critChance;
+    }
+
+    @Override
+    public double rarity() {
+        return rarity;
     }
 
     @Override

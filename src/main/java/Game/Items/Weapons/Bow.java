@@ -6,7 +6,7 @@ import Game.Items.Weapon;
 public class Bow implements Weapon<Bow> {
     private final boolean equipped, booster;
     private final int storageSize;
-    private final double damageBoost, critChance, boost;
+    private final double damageBoost, critChance, boost, rarity;
     public Bow(){
         equipped = false;
         booster = false;
@@ -14,6 +14,7 @@ public class Bow implements Weapon<Bow> {
         damageBoost = 6.0;
         critChance = 0.5;
         boost = 1.2;
+        rarity = 0.3;
     }
     @Override
     public boolean getEquipped() {
@@ -23,6 +24,11 @@ public class Bow implements Weapon<Bow> {
     @Override
     public int getStorageSize() {
         return storageSize;
+    }
+
+    @Override
+    public double rarity() {
+        return rarity;
     }
 
     @Override

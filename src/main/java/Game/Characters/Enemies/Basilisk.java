@@ -4,29 +4,41 @@ import Game.Characters.Enemy;
 import Game.Items.Item;
 
 public class Basilisk implements Enemy {
+    private final int moves, range, vision;
+    private final double health, attack, defense, tier, spawnRate;
+    public Basilisk(){
+        moves = 3;
+        range = 5;
+        health = 20.0;
+        attack = 12.0;
+        defense = 8.0;
+        vision = 3;
+        tier = 3;
+        spawnRate = 0.2;
+    }
     @Override
     public int getMoves() {
-        return 0;
+        return moves;
     }
 
     @Override
-    public int getHealth() {
-        return 0;
+    public double getHealth() {
+        return health;
     }
 
     @Override
-    public int getAttack() {
-        return 0;
+    public double getAttack() {
+        return attack;
     }
 
     @Override
     public int getRange() {
-        return 0;
+        return range;
     }
 
     @Override
-    public int getDefense() {
-        return 0;
+    public double getDefense() {
+        return defense;
     }
 
     @Override
@@ -36,12 +48,12 @@ public class Basilisk implements Enemy {
 
     @Override
     public double getSpawnRate() {
-        return 0;
+        return spawnRate;
     }
 
     @Override
     public double getTier() {
-        return 0;
+        return tier;
     }
 
     @Override
@@ -50,8 +62,8 @@ public class Basilisk implements Enemy {
     }
 
     @Override
-    public boolean getVision() {
-        return false;
+    public double getVision() {
+        return vision;
     }
 
     @Override

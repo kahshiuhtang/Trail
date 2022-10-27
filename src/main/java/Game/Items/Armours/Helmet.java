@@ -3,7 +3,7 @@ package Game.Items.Armours;
 import Game.Items.Armour;
 
 public class Helmet implements Armour<Helmet> {
-    private final double critReduction, damageReduction;
+    private final double critReduction, damageReduction, rarity;
     private final boolean equipped;
     private final int storageSpace;
 
@@ -12,6 +12,7 @@ public class Helmet implements Armour<Helmet> {
         damageReduction = 3.0;
         equipped = false;
         storageSpace = 2;
+        rarity = 0.25;
     }
     @Override
     public double critReduction() {
@@ -31,6 +32,11 @@ public class Helmet implements Armour<Helmet> {
     @Override
     public int getStorageSize() {
         return storageSpace;
+    }
+
+    @Override
+    public double rarity() {
+        return rarity;
     }
 
     @Override

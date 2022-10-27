@@ -4,7 +4,11 @@ public interface Teleporter extends Item<Teleporter>{
     /*
      * Total Square worth of teleportation
      */
-    public int getSquares();
+    public int getSquaresVertical();
+    /*
+     * Total Square worth of teleportation
+     */
+    public int getSquaresHorizontal();
     /*
      * Is this teleportation random?
      */

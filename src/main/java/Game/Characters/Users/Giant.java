@@ -4,7 +4,8 @@ import Game.Characters.User;
 import Game.Items.Item;
 
 public class Giant implements User {
-    private final int moves, health, attack, range, defense;
+    private final int moves, range;
+    private final double health, attack, defense;
     private Item<?>[] storage;
 
     public Giant(){
@@ -20,12 +21,12 @@ public class Giant implements User {
     }
 
     @Override
-    public int getHealth() {
+    public double getHealth() {
         return health;
     }
 
     @Override
-    public int getAttack() {
+    public double getAttack() {
         return attack;
     }
 
@@ -35,7 +36,7 @@ public class Giant implements User {
     }
 
     @Override
-    public int getDefense() {
+    public double getDefense() {
         return defense;
     }
 

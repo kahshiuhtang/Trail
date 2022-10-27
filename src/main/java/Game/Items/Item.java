@@ -10,5 +10,7 @@ public interface Item<T> {
      */
     public int getStorageSize();
 
+    public double rarity();
+
     public T getItem();
 }

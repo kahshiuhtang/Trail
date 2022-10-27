@@ -12,19 +12,19 @@ public interface Character<T>{
      * How much health a character has
      * Normal: 16
      */
-    public int getHealth();
+    public double getHealth();
     /*
      * How much damage a character does
      */
-    public int getAttack();
+    public double getAttack();
     /*
      * how many tiles away can the character attack
      */
     public int getRange();
     /*
-     * defense/10 is the percent of taking half damage
+     * defense is the percent of taking half damage
      */
-    public int getDefense();
+    public double getDefense();
     /*
      * What items are held by the player:
      * Max storage is different for every player, depends on class
