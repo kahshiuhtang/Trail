@@ -1,5 +1,7 @@
 package Game.Characters;
 
+import Game.Items.Item;
+
 public interface Enemy extends Character<Enemy> {
 
     /*
@@ -19,6 +21,6 @@ public interface Enemy extends Character<Enemy> {
      */
    public boolean getVision();
 
-
+    public Item<? extends Item<?>>[] drops();
 
 }

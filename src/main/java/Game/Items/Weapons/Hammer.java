@@ -2,17 +2,17 @@ package Game.Items.Weapons;
 
 import Game.Items.Weapon;
 
-public class Sword implements Weapon<Sword> {
+public class Hammer implements Weapon<Hammer> {
     private final boolean equipped, booster;
     private final int storageSize;
     private final double damageBoost, critChance, boost;
-    public Sword(){
+    public Hammer(){
         equipped = false;
         booster = false;
-        storageSize = 1;
-        damageBoost = 4.0;
-        critChance = 0.3;
-        boost = 1.5;
+        storageSize = 2;
+        damageBoost = 6.0;
+        critChance = 0.6;
+        boost = 2.0;
     }
     @Override
     public boolean getEquipped() {
@@ -25,8 +25,8 @@ public class Sword implements Weapon<Sword> {
     }
 
     @Override
-    public Weapon getItem() {
-        return new Sword();
+    public Hammer getItem() {
+        return new Hammer();
     }
 
     @Override

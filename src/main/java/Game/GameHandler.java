@@ -9,4 +9,8 @@ public class GameHandler {
     private Enemy boss1;
     private Enemy boss2;
     private Character opponent;
+    public GameHandler(){
+        m = new Map();
+    }
+
 }

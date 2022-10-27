@@ -11,7 +11,7 @@ import Game.Items.Item;
             moves = 5;
             health = 20;
             attack = 4;
-            range = 2;
+            range = 3;
             defense = 5;
         }
         @Override

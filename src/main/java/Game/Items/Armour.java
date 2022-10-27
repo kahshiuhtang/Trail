@@ -1,4 +1,6 @@
 package Game.Items;
 
-public interface Armour extends Item<Armour>{
+public interface Armour<T> extends Item<T>{
+    public double critReduction();
+    public double damageReduction();
 }
