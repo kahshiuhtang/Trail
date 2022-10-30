@@ -9,4 +9,5 @@ public interface Square {
      *  Percentage you take 1 health of damage
      */
     public double getDanger();
+
 }

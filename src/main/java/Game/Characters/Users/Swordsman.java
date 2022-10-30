@@ -9,7 +9,7 @@ import Game.Items.Item;
         private Item<?>[] storage;
 
         public Swordsman(){
-            moves = 5;
+            moves = 4;
             health = 20;
             attack = 4;
             range = 3;
