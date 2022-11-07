@@ -21,11 +21,11 @@ public class Map {
         int plates = generateRandomNumber(4,6);
         final String[] biomes = chooseBiomes(plates);
         for(int i = 1; i < plates+1; i++){
-            int x = generateRandomNumber(0,15);
-            int y = generateRandomNumber(0,15);
+            int x = generateRandomNumber(3,12);
+            int y = generateRandomNumber(3,12);
             while(colored[x][y]){
-                x = generateRandomNumber(0,15);
-                y = generateRandomNumber(0,15);
+                x = generateRandomNumber(3,12);
+                y = generateRandomNumber(3,12);
             }//TODO: need to figure out how to assign the biomes
             biomeArr[x][y] = i;
             colored[x][y] = true;
@@ -47,34 +47,52 @@ public class Map {
         }
     }
     private void assign(boolean[][] colored, int[][] biomeArr, int x, int y){
-        if(x+1 < 16 && colored[x+1][y]){
-            colored[x][y] = true;
-            biomeArr[x][y] = biomeArr[x+1][y];
-        }
-        if(x-1 > 0 && colored[x-1][y]){
-            colored[x][y] = true;
-            biomeArr[x][y] = biomeArr[x-1][y];
-        }
-        if(y+1 < 16 && colored[x][y+1]){
-            colored[x][y] = true;
-            biomeArr[x][y] = biomeArr[x][y+1];
-        }
-        if(y-1 > 0 && colored[x][y-1]){
-            colored[x][y] = true;
-            biomeArr[x][y] = biomeArr[x][y-1];
+        int choice = generateRandomNumber(0, 3);
+        boolean changed = false;
+        while(!changed){
+            switch(choice){
+                case 0:
+                    if(x+1 < 16 && colored[x+1][y]) {
+                        colored[x][y] = true;
+                        biomeArr[x][y] = biomeArr[x + 1][y];
+                    }
+                    changed = true;
+                    break;
+                case 1:
+                    if(x-1 >= 0 && colored[x-1][y]){
+                        colored[x][y] = true;
+                        biomeArr[x][y] = biomeArr[x-1][y];
+                    }
+                    changed = true;
+                    break;
+                case 2:
+                    if(y+1 < 16 && colored[x][y+1]){
+                        colored[x][y] = true;
+                        biomeArr[x][y] = biomeArr[x][y+1];
+                    }
+                    changed = true;
+                    break;
+                case 3:
+                    if(y-1 >= 0 && colored[x][y-1]){
+                        colored[x][y] = true;
+                        biomeArr[x][y] = biomeArr[x][y-1];
+                    }
+                    changed = true;
+                    break;
+            }
         }
     }
     private void addBorders(Queue<Pair> q, boolean[][] colored, int x, int y){
         if(x+1 < 16 && !colored[x+1][y]){
             q.add(new Pair(x+1,y));
         }
-        if(x-1 > 0 && !colored[x-1][y]){
+        if(x-1 >= 0 && !colored[x-1][y]){
             q.add(new Pair(x-1,y));
         }
         if(y+1 < 16 && !colored[x][y+1]){
             q.add(new Pair(x,y+1));
         }
-        if(y-1 > 0 && !colored[x][y-1]){
+        if(y-1 >= 0 && !colored[x][y-1]){
             q.add(new Pair(x,y-1));
         }
     }
