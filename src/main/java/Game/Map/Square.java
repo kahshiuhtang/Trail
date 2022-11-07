@@ -1,6 +1,6 @@
 package Game.Map;
 
-public interface Square {
+public interface Square<T> {
     /*
      * How much of a move difference does it give?, rounds down
      */
@@ -9,5 +9,8 @@ public interface Square {
      *  Percentage you take 1 health of damage
      */
     public double getDanger();
+
+    public String getSquare();
+    public T getSquareData(String biome);
 
 }
