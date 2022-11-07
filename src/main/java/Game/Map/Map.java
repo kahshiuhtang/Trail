@@ -18,14 +18,14 @@ public class Map {
         int[][] biomeArr = new int[16][16];
         boolean[][] colored = new boolean[16][16];
         Queue<Pair> q = new LinkedList();
-        int plates = generateRandomNumber(5,6);
+        int plates = 5;
         final Square[] biomes = {LandBiome.FOREST, LandBiome.MOUNTAIN, LandBiome.DESERT, LandBiome.GRASSLANDS, LandBiome.TUNDRA, WaterBiome.LAKE, LandBiome.RAINFOREST, WaterBiome.OCEAN};
         for(int i = 1; i < plates+1; i++){
-            int x = generateRandomNumber(5,11);
-            int y = generateRandomNumber(5,11);
+            int x = generateRandom(i%5);
+            int y = generateRandom((i+1)%5);
             while(colored[x][y]){
-                x = generateRandomNumber(5,11);
-                y = generateRandomNumber(5,11);
+                x = generateRandom(i%3);
+                y = generateRandom((i+1)%3);
             }//TODO: need to figure out how to assign the biomes
             map[x][y] = biomes[i];
             biomeArr[x][y] = i;
@@ -42,6 +42,17 @@ public class Map {
         }
         ensure(colored,biomeArr,biomes);
     }
+    public int generateRandom(int point){
+        return switch (point) {
+            case 0 -> generateRandomNumber(8, 11);
+            case 1 -> generateRandomNumber(0, 2);
+            case 2 -> generateRandomNumber(3, 5);
+            case 3 -> generateRandomNumber(6, 8);
+            case 4 -> generateRandomNumber(12, 15);
+            default -> 0;
+        };
+    }
+
     private void ensure(boolean[][] colored, int[][] biomeArr, Square[] biomes){
         for(int i = 0; i < 16;i++){
             for(int j = 0; j < 16; j++){
@@ -55,38 +66,39 @@ public class Map {
         int choice = generateRandomNumber(0, 3);
         boolean changed = false;
         while(!changed){
+            choice = generateRandomNumber(0, 3);
             switch(choice){
                 case 0:
                     if(x+1 < 16 && colored[x+1][y]) {
                         colored[x][y] = true;
                         biomeArr[x][y] = biomeArr[x + 1][y];
                         this.map[x][y] = biomes[biomeArr[x + 1][y]];
+                        changed = true;
                     }
-                    changed = true;
                     break;
                 case 1:
                     if(x-1 >= 0 && colored[x-1][y]){
                         colored[x][y] = true;
                         biomeArr[x][y] = biomeArr[x-1][y];
                         this.map[x][y] = biomes[biomeArr[x - 1][y]];
+                        changed = true;
                     }
-                    changed = true;
                     break;
                 case 2:
                     if(y+1 < 16 && colored[x][y+1]){
                         colored[x][y] = true;
                         biomeArr[x][y] = biomeArr[x][y+1];
                         this.map[x][y] = biomes[biomeArr[x][y+1]];
+                        changed = true;
                     }
-                    changed = true;
                     break;
                 case 3:
                     if(y-1 >= 0 && colored[x][y-1]){
                         colored[x][y] = true;
                         biomeArr[x][y] = biomeArr[x][y-1];
                         this.map[x][y] = biomes[biomeArr[x][y-1]];
+                        changed = true;
                     }
-                    changed = true;
                     break;
             }
         }
