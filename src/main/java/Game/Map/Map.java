@@ -1,6 +1,7 @@
 package Game.Map;
 
 import Game.Utilities.Color;
+import Structures.Pair;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -33,7 +34,7 @@ public class Map {
             addBorders(q, colored, x, y);
         }
         while(!q.isEmpty()){
-            Pair temp = q.poll();
+            Pair<Integer> temp = q.poll();
             if(colored[temp.x][temp.y]){
                 continue;
             }
@@ -105,38 +106,31 @@ public class Map {
     }
     private void addBorders(Queue<Pair> q, boolean[][] colored, int x, int y){
         if(x+1 < 16 && !colored[x+1][y]){
-            q.add(new Pair(x+1,y));
+            q.add(new Pair<Integer>(x+1,y));
         }
         if(x-1 >= 0 && !colored[x-1][y]){
-            q.add(new Pair(x-1,y));
+            q.add(new Pair<Integer>(x-1,y));
         }
         if(y+1 < 16 && !colored[x][y+1]){
-            q.add(new Pair(x,y+1));
+            q.add(new Pair<Integer>(x,y+1));
         }
         if(y-1 >= 0 && !colored[x][y-1]){
-            q.add(new Pair(x,y-1));
+            q.add(new Pair<Integer>(x,y-1));
         }
         if(x+1 < 16 && y+1 < 16 && !colored[x+1][y+1]){
-            q.add(new Pair(x+1,y+1));
+            q.add(new Pair<Integer>(x+1,y+1));
         }
         if(x+1 < 16 && y-1 >= 0 && !colored[x+1][y-1]){
-            q.add(new Pair(x+1,y-1));
+            q.add(new Pair<Integer>(x+1,y-1));
         }
         if(y+1 < 16 && x-1 >= 0 && !colored[x-1][y+1]){
-            q.add(new Pair(x-1,y+1));
+            q.add(new Pair<Integer>(x-1,y+1));
         }
         if(y-1 >= 0 && x-1 >= 0 && !colored[x-1][y-1]){
-            q.add(new Pair(x-1,y-1));
+            q.add(new Pair<Integer>(x-1,y-1));
         }
     }
-    private class Pair{
-        int x;
-        int y;
-        Pair(int x, int y){
-            this.x = x;
-            this.y = y;
-        }
-    }
+
     private int generateRandomNumber(int lowerBound, int upperBound){
         return r.nextInt((upperBound-lowerBound)+1)+lowerBound;
     }
