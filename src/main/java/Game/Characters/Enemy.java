@@ -15,7 +15,7 @@ public interface Enemy extends Character<Enemy> {
     */
    public double getTier();
    /*
-    * Whether or not the boss has a special ability or not, will be stored as enum
+    * Whether the boss has a special ability or not, will be stored as enum
     */
    public boolean hasAbility();
     /*
@@ -24,5 +24,6 @@ public interface Enemy extends Character<Enemy> {
    public double getVision();
 
     public Item<? extends Item<?>>[] drops();
+
 
 }

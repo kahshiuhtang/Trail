@@ -1,6 +1,7 @@
 package Game.Map;
 
 import Game.Utilities.Color;
+import Game.Utilities.Generator;
 import Structures.Pair;
 
 import java.util.LinkedList;
@@ -9,7 +10,6 @@ import java.util.Random;
 
 public class Map {
     private final Square<?>[][] map;
-    private final Random r = new Random();
     public Map(){
         map = new Square[16][16];
         generateNewMap();
@@ -45,11 +45,11 @@ public class Map {
     }
     public int generateRandom(int point){
         return switch (point) {
-            case 0 -> generateRandomNumber(8, 11);
-            case 1 -> generateRandomNumber(0, 2);
-            case 2 -> generateRandomNumber(3, 5);
-            case 3 -> generateRandomNumber(6, 8);
-            case 4 -> generateRandomNumber(12, 15);
+            case 0 -> Generator.generateRandomNumber(8, 11);
+            case 1 -> Generator.generateRandomNumber(0, 2);
+            case 2 -> Generator.generateRandomNumber(3, 5);
+            case 3 -> Generator.generateRandomNumber(6, 8);
+            case 4 -> Generator.generateRandomNumber(12, 15);
             default -> 0;
         };
     }
@@ -64,10 +64,10 @@ public class Map {
         }
     }
     private void assign(boolean[][] colored, int[][] biomeArr, int x, int y, Square[] biomes){
-        int choice = generateRandomNumber(0, 3);
+        int choice = Generator.generateRandomNumber(0, 3);
         boolean changed = false;
         while(!changed){
-            choice = generateRandomNumber(0, 3);
+            choice = Generator.generateRandomNumber(0, 3);
             switch(choice){
                 case 0:
                     if(x+1 < 16 && colored[x+1][y]) {
@@ -131,9 +131,7 @@ public class Map {
         }
     }
 
-    private int generateRandomNumber(int lowerBound, int upperBound){
-        return r.nextInt((upperBound-lowerBound)+1)+lowerBound;
-    }
+
     public Square getSquare(int x, int y){
         return map[x][y];
     }

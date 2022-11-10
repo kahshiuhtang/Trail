@@ -1,6 +1,7 @@
 package Game.Characters;
 
 import Game.Items.Item;
+import Structures.Pair;
 
 public interface Character<T>{
     /*
@@ -30,6 +31,8 @@ public interface Character<T>{
      * Max storage is different for every player, depends on class
      */
     public Item<?>[] getStorage();
+
+    public Pair<Integer> getCoordinates();
 
 
 }

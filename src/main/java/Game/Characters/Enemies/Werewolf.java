@@ -2,12 +2,17 @@ package Game.Characters.Enemies;
 
 import Game.Characters.Enemy;
 import Game.Items.Item;
+import Game.Utilities.Generator;
+import Structures.Pair;
 
 public class Werewolf implements Enemy {
 
     private final int moves, range, vision;
+    private int x,y;
     private final double health, attack, defense, tier, spawnRate;
     public Werewolf(){
+        x = Generator.generateRandomNumber(0,15);
+        y = Generator.generateRandomNumber(0,15);
         moves = 2;
         range = 5;
         health = 16.0;
@@ -45,6 +50,11 @@ public class Werewolf implements Enemy {
     @Override
     public Item<?>[] getStorage() {
         return new Item[0];
+    }
+
+    @Override
+    public Pair<Integer> getCoordinates() {
+        return new Pair<Integer>(x,y);
     }
 
     @Override

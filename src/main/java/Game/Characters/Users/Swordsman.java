@@ -2,13 +2,20 @@ package Game.Characters.Users;
 
 import Game.Characters.User;
 import Game.Items.Item;
-    public class Swordsman implements User {
+import Game.Utilities.Generator;
+import Structures.Pair;
+
+public class Swordsman implements User {
 
         private final int moves, range;
+
+        private int x,y;
         private final double health, attack, defense;
         private Item<?>[] storage;
 
         public Swordsman(){
+            x = Generator.generateRandomNumber(0,15);
+            y = Generator.generateRandomNumber(0,15);
             moves = 4;
             health = 20;
             attack = 4;
@@ -44,5 +51,10 @@ import Game.Items.Item;
         public Item<?>[] getStorage() {
             return storage;
         }
+
+    @Override
+    public Pair<Integer> getCoordinates() {
+        return new Pair<Integer>(x,y);
     }
+}
 
