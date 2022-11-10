@@ -5,7 +5,9 @@ import Game.Characters.Enemy;
 import Game.Characters.User;
 import Game.Characters.Users.*;
 import Game.Map.Map;
+import Game.Utilities.ComparePoints;
 import Game.Utilities.Generator;
+import Game.Utilities.Prompts;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -23,30 +25,50 @@ public class GameHandler {
         scanner = new Scanner(System.in);
         startGame();
         while(true){
-           m.printGameStatus();
-           String s = scanner.nextLine();
+           while(userTurn){
+               m.printGameStatus(user.getCoordinates(), opponent.getCoordinates());
+               String s = scanner.nextLine();
+               int x = Integer.parseInt(s.substring(1,3));
+               int y = Integer.parseInt(s.substring(3,5));
+               System.out.println(x + "" + y);
+               switch(s){
+                   case "A":
+                        attack();
+                       break;
+                   case "U":
+                       break;
+                   case "M":
+                       move();
+                       break;
+                   case "P":
+
+                       break;
+                   case "E":
+                        changeTurn();
+                       break;
+
+               }
+           }
+
         }
     }
     private void startGame(){
+        Prompts.selectCharacter();
+        String choice = scanner.nextLine();
+        setUser(choice);
         m = new Map();
         boss1 = randomEnemy();
         boss2 = randomEnemy();
-        while(Objects.equals(boss1.getCoordinates().x, boss2.getCoordinates().x) && Objects.equals(boss1.getCoordinates().y, boss2.getCoordinates().y)){
+        while(ComparePoints.compare(boss1.getCoordinates(), boss2.getCoordinates())){
             boss2 = randomEnemy();
         }
         opponent = randomUser();
     }
     private void setUser(String choice){
-        switch(choice){
-            case "A":
-                user = new Archer();
-                break;
-            case "G":
-                user = new Giant();
-                break;
-            case "S":
-                user = new Swordsman();
-                break;
+        switch (choice) {
+            case "A" -> user = new Archer();
+            case "G" -> user = new Giant();
+            case "S" -> user = new Swordsman();
         }
     }
     private Enemy randomEnemy(){

@@ -132,14 +132,14 @@ public class Map {
     }
 
 
-    public Square getSquare(int x, int y){
+    public Square<?> getSquare(int x, int y){
         return map[x][y];
     }
 
     public String toString(){
        return "";
     }
-    public void printGameStatus(){
+    public void printGameStatus(Pair<Integer> user, Pair<Integer> enemy){
         for(int i = 0; i < 16; i++){
             System.out.println("");
             if(i < 7){
@@ -169,6 +169,7 @@ public class Map {
                 System.out.print(Color. WHITE_BACKGROUND + "" + Color.RED_BOLD_BRIGHT + " " + i + " ");
             }
         }
+        System.out.println();
     }
 
 
