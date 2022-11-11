@@ -56,5 +56,11 @@ public class Swordsman implements User {
     public Pair<Integer> getCoordinates() {
         return new Pair<Integer>(x,y);
     }
+
+    @Override
+    public void updateCoordinates(int x, int y) {
+        this.x = x+this.x;
+        this.y = y+this.y;
+    }
 }
 

@@ -7,12 +7,25 @@ public enum Color {
         // Regular Colors. Normal color, no bold, background color etc.
         BLACK("\033[0;30m"),    // BLACK
         RED("\033[0;31m"),      // RED
-        GREEN("\033[0;32m"),    // GREEN
-        YELLOW("\033[0;33m"),   // YELLOW
-        BLUE("\033[0;34m"),     // BLUE
-        MAGENTA("\033[0;35m"),  // MAGENTA
-        CYAN("\033[0;36m"),     // CYAN
-        WHITE("\033[0;37m"),    // WHITE
+        GREEN("\033[1;92m"),    // GREEN
+        YELLOW("\033[1;93m"),   // YELLOW
+        BLUE("\033[1;34m"),     // BLUE
+        MAGENTA("\033[1;35m"),  // MAGENTA
+        CYAN("\033[1;96m"),     // CYAN
+        WHITE("\033[1;97m"),    // WHITE
+        LIGHT_GREEN("\033[1;37m"),
+
+        // Regular Colors. Normal color, no bold, background color etc.
+        BLACK_USER("\033[0;52;30m"),    // BLACK
+        RED_USER("\033[0;52;31m"),      // RED
+        GREEN_SIG("\033[1;52;92m"),    // GREEN
+        YELLOW_SIG("\033[1;52;93m"),   // YELLOW
+        BLUE_SIG("\033[1;52;34m"),     // BLUE
+        MAGENTA_SIG("\033[1;52;35m"),  // MAGENTA
+        CYAN_SIG("\033[1;52;96m"),     // CYAN
+        WHITE_SIG("\033[1;52;97m"),    // WHITE
+        LIGHT_GREEN_SIG("\033[1;52;37m"),
+
 
         // Bold
         BLACK_BOLD("\033[1;30m"),   // BLACK
@@ -23,6 +36,16 @@ public enum Color {
         MAGENTA_BOLD("\033[1;35m"), // MAGENTA
         CYAN_BOLD("\033[1;36m"),    // CYAN
         WHITE_BOLD("\033[1;37m"),   // WHITE
+
+        // Regular Colors. Normal color, no bold, background color etc.
+        BLACK_ITALIC("\033[3;51;30m"),    // BLACK
+        RED_ITALIC("\033[2;31m"),      // RED
+        GREEN_ITALIC("\033[513;;32m"),    // GREEN
+        YELLOW_ITALIC("\033[3;51;33m"),   // YELLOW
+        BLUE_ITALIC("\033[3;51;34m"),     // BLUE
+        MAGENTA_ITALIC("\033[3;51;35m"),  // MAGENTA
+        CYAN_ITALIC("\033[3;51;36m"),     // CYAN
+        WHITE_ITALIC("\033[3;51;37m"),    // WHITE
 
         // Underline
         BLACK_UNDERLINED("\033[4;30m"),     // BLACK

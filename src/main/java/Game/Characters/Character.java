@@ -34,5 +34,7 @@ public interface Character<T>{
 
     public Pair<Integer> getCoordinates();
 
+    public void updateCoordinates(int x, int y);
+
 
 }

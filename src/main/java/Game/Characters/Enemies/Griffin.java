@@ -81,4 +81,9 @@ public class Griffin implements Enemy {
     public Item<? extends Item<?>>[] drops() {
         return new Item[0];
     }
+    @Override
+    public void updateCoordinates(int x, int y) {
+        this.x = x+this.x;
+        this.y = y+this.y;
+    }
 }

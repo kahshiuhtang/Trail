@@ -31,14 +31,14 @@ public class GameHandler {
                int x = Integer.parseInt(s.substring(1,3));
                int y = Integer.parseInt(s.substring(3,5));
                System.out.println(x + "" + y);
-               switch(s){
+               switch(s.substring(0,1)){
                    case "A":
                         attack();
                        break;
                    case "U":
                        break;
                    case "M":
-                       move();
+                       moveUser(x,y);
                        break;
                    case "P":
 
@@ -55,7 +55,8 @@ public class GameHandler {
     private void startGame(){
         Prompts.selectCharacter();
         String choice = scanner.nextLine();
-        setUser(choice);
+        System.out.println(choice.length());
+        setUser(choice.toUpperCase());
         m = new Map();
         boss1 = randomEnemy();
         boss2 = randomEnemy();
@@ -83,7 +84,7 @@ public class GameHandler {
         };
     }
     private User randomUser(){
-        int choice = Generator.generateRandomNumber(1,5);
+        int choice = Generator.generateRandomNumber(1,3);
         return switch (choice) {
             case 1 -> new Archer();
             case 2 -> new Giant();
@@ -97,7 +98,16 @@ public class GameHandler {
     public void attack(){
 
     }
-    public void move(){
+    public void moveUser(int x, int y){
+        int moves = user.getMoves();
+        moves = moves * moves;
+        int sum = x*x+y*y;
+        if(sum > moves){
+            throw new IllegalArgumentException();
+        }
+        user.updateCoordinates(x,y);
+    }
+    public void moveOpponent(){
 
     }
     public void useItem(){

@@ -2,11 +2,11 @@ package Game.Map;
 
 import Game.Utilities.Color;
 import Game.Utilities.Generator;
+import Game.Utilities.Prompts;
 import Structures.Pair;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Random;
 
 public class Map {
     private final Square<?>[][] map;
@@ -147,31 +147,21 @@ public class Map {
             }else{
                 System.out.print(Color.RESET + "" + Color. WHITE_BACKGROUND + "" + Color.RED_BOLD_BRIGHT + " " + Math.abs(16-i) + "  ");
             }
-            for(int j = 15; j >= 0 && i < 16; j--){
+            for(int j = 0; j < 16; j++){
                 switch (map[i][j].getSquare()) {
-                    case "FOREST" -> System.out.print(Color.RESET + "" + Color.BLACK_BACKGROUND + ""+  Color.GREEN_BOLD +" " + "F" + "  " + Color.RESET);
-                    case "MOUNTAIN" -> System.out.print(Color.RESET + "" + Color.BLACK_BACKGROUND + ""+ Color.WHITE_BOLD_BRIGHT +" " + "M" + "  "+ Color.RESET);
-                    case "DESERT" -> System.out.print(Color.RESET + "" + Color.BLACK_BACKGROUND + ""+ Color.YELLOW_BOLD_BRIGHT +" " + "D" + "  "+ Color.RESET);
-                    case "GRASSLANDS" -> System.out.print(Color.RESET + "" + Color.BLACK_BACKGROUND + ""+ Color.GREEN_BOLD_BRIGHT +" " + "G" + "  "+ Color.RESET);
-                    case "TUNDRA" -> System.out.print(Color.RESET + "" + Color.BLACK_BACKGROUND + ""+ Color.MAGENTA_BOLD + " " + "T" + "  "+ Color.RESET);
-                    case "RAINFOREST" -> System.out.print(Color.RESET + "" + Color.BLACK_BACKGROUND + ""+ Color.CYAN_BOLD_BRIGHT +" " + "R" + "  "+ Color.RESET);
-                    case "LAKE" -> System.out.print(Color.RESET + "" + Color. WHITE_BACKGROUND_BRIGHT + ""+ Color.CYAN_BOLD_BRIGHT +" " + "L" + "  "+ Color.RESET);
-                    case "OCEAN" -> System.out.print(Color.RESET + "" + Color. WHITE_BACKGROUND_BRIGHT + ""+ Color.BLUE_BOLD +" " + "O" + "  "+ Color.RESET);
+                    case "FOREST" -> Prompts.forest(user, enemy,new Pair<Integer>(j+1, 16-i));
+                    case "MOUNTAIN" -> Prompts.mountain(user, enemy,new Pair<Integer>(j+1, 16-i));
+                    case "DESERT" -> Prompts.desert(user, enemy,new Pair<Integer>(j+1, 16-i));
+                    case "GRASSLANDS" -> Prompts.grassland(user, enemy,new Pair<Integer>(j+1, 16-i));
+                    case "TUNDRA" -> Prompts.tundra(user, enemy,new Pair<Integer>(j+1, 16-i));
+                    case "RAINFOREST" -> Prompts.rainforest(user, enemy,new Pair<Integer>(j+1, 16-i));
+                    case "LAKE" -> Prompts.lake(user, enemy,new Pair<Integer>(j+1, 16-i));
+                    case "OCEAN" -> Prompts.ocean(user, enemy,new Pair<Integer>(j+1, 16-i));
                 }
             }
         }
         System.out.println();
-        System.out.print(Color. WHITE_BACKGROUND + "" + Color.RED_BOLD_BRIGHT+ " 0  " + Color.RESET);
-        for(int i = 1; i <= 16; i++){
-            if(i < 10){
-                System.out.print(Color. WHITE_BACKGROUND+ "" + Color.RED_BOLD_BRIGHT + " " + i + "  ");
-            }else{
-                System.out.print(Color. WHITE_BACKGROUND + "" + Color.RED_BOLD_BRIGHT + " " + i + " ");
-            }
-        }
-        System.out.println();
+        Prompts.mapLastRow();
     }
-
-
 }
 
