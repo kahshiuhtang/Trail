@@ -9,7 +9,7 @@ public class Archer implements User {
 
     private final int moves, range;
     private int x,y;
-    private final double health, attack, defense;
+    private double health, attack, defense;
     private Item<?>[] storage;
 
     public Archer(){
@@ -59,5 +59,10 @@ public class Archer implements User {
     public void updateCoordinates(int x, int y) {
         this.x = x+this.x;
         this.y = y+this.y;
+    }
+
+    @Override
+    public void reduceHealth(double damage) {
+        this.health = this.health - damage;
     }
 }

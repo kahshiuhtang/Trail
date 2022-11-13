@@ -15,6 +15,9 @@ public class Prompts {
         System.out.println("2: Item Map");
         System.out.println("3: Boss Map");
     }
+    public static void inputError(){
+        System.out.println("Error! Please Enter Valid Input.");
+    }
     public static void forest(Pair<Integer> user, Pair<Integer> enemy, Pair<Integer> currentPoint){
         if(ComparePoints.compare(user, currentPoint)){
             System.out.print(Color.RESET + "" + Color.BLACK_BACKGROUND + ""+  Color.RED_USER +" " + "F" + "  " + Color.RESET);

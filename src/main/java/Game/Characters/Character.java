@@ -36,5 +36,7 @@ public interface Character<T>{
 
     public void updateCoordinates(int x, int y);
 
+    public void reduceHealth(double damage);
+
 
 }

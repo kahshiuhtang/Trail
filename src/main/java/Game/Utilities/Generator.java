@@ -7,4 +7,7 @@ public class Generator {
     public static int generateRandomNumber(int lowerBound, int upperBound){
         return r.nextInt((upperBound-lowerBound)+1)+lowerBound;
     }
+    public static double generateRandomDecimal(){
+        return r.nextDouble();
+    }
 }

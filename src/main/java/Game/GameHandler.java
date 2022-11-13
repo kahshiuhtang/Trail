@@ -5,11 +5,9 @@ import Game.Characters.Enemy;
 import Game.Characters.User;
 import Game.Characters.Users.*;
 import Game.Map.Map;
-import Game.Utilities.ComparePoints;
-import Game.Utilities.Generator;
-import Game.Utilities.Prompts;
+import Game.Utilities.*;
+import Structures.Pair;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 public class GameHandler {
@@ -31,23 +29,26 @@ public class GameHandler {
                int x = Integer.parseInt(s.substring(1,3));
                int y = Integer.parseInt(s.substring(3,5));
                System.out.println(x + "" + y);
-               switch(s.substring(0,1)){
-                   case "A":
-                        attack();
-                       break;
-                   case "U":
-                       break;
-                   case "M":
-                       moveUser(x,y);
-                       break;
-                   case "P":
-
-                       break;
-                   case "E":
-                        changeTurn();
-                       break;
-
-               }
+              try{
+                  switch(s.substring(0,1)){
+                      case "A":
+                          attack(new Pair<Integer>(x,y));
+                          break;
+                      case "U":
+                          break;
+                      case "M":
+                          moveUser(x,y);
+                          break;
+                      case "E":
+                          changeTurn();
+                          break;
+                      default:
+                          Prompts.inputError();
+                          break;
+                  }
+              }catch(IllegalArgumentException e){
+                  System.out.println(e.toString());
+              }
            }
 
         }
@@ -95,15 +96,26 @@ public class GameHandler {
     public void changeTurn(){
         userTurn = !userTurn;
     }
-    public void attack(){
-
+    public void attack(Pair<Integer> location){
+        int validRange = user.getRange();
+        if (validRange*validRange > ComparePoints.distance(user.getCoordinates(), location)){
+            throw new IllegalArgumentException("Out Of Range!");
+        }
+        Game.Characters.Character<?> attacked = findAttacker(location);
+        if(attacked == null){
+            throw new IllegalArgumentException("No Opponent Found");
+        }
+        double percent = Generator.generateRandomDecimal();
+        double damage = user.getAttack();
+        if(percent > attacked.getDefense()) damage = damage/2;
+        attacked.reduceHealth(damage);
     }
     public void moveUser(int x, int y){
         int moves = user.getMoves();
         moves = moves * moves;
         int sum = x*x+y*y;
         if(sum > moves){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Too Far Away!");
         }
         user.updateCoordinates(x,y);
     }
@@ -112,6 +124,16 @@ public class GameHandler {
     }
     public void useItem(){
 
+    }
+    public Game.Characters.Character<?> findAttacker(Pair<Integer> loc){
+        if(ComparePoints.compare(loc, boss1.getCoordinates())){
+            return  boss1;
+        }else if(ComparePoints.compare(loc, boss2.getCoordinates())){
+            return boss2;
+        }else if(ComparePoints.compare(loc, opponent.getCoordinates())){
+            return opponent;
+        }
+        return null;
     }
 
 }

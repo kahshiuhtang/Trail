@@ -9,7 +9,7 @@ public class Werewolf implements Enemy {
 
     private final int moves, range, vision;
     private int x,y;
-    private final double health, attack, defense, tier, spawnRate;
+    private double health, attack, defense, tier, spawnRate;
     public Werewolf(){
         x = Generator.generateRandomNumber(0,15);
         y = Generator.generateRandomNumber(0,15);
@@ -85,5 +85,10 @@ public class Werewolf implements Enemy {
     public void updateCoordinates(int x, int y) {
         this.x = x+this.x;
         this.y = y+this.y;
+    }
+
+    @Override
+    public void reduceHealth(double damage) {
+        this.health = this.health - damage;
     }
 }
