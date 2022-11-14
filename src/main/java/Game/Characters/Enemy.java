@@ -1,6 +1,9 @@
 package Game.Characters;
 
+import Game.Items.Armour;
+import Game.Items.Boost;
 import Game.Items.Item;
+import Game.Items.Weapon;
 import Game.Map.Square;
 
 public interface Enemy extends Character<Enemy> {
@@ -25,5 +28,7 @@ public interface Enemy extends Character<Enemy> {
 
     public Item<? extends Item<?>>[] drops();
 
+    public Weapon<?> weaponDrop();
+    public Armour<?> armourDrop();
 
 }

@@ -1,7 +1,9 @@
 package Game.Characters.Enemies;
 
 import Game.Characters.Enemy;
-import Game.Items.Item;
+import Game.Items.*;
+import Game.Items.Armours.Cloak;
+import Game.Items.Weapons.Hammer;
 import Game.Utilities.Generator;
 import Structures.Pair;
 
@@ -10,6 +12,9 @@ public class Griffin implements Enemy {
 
     private int x,y;
     private double health, attack, defense, tier, spawnRate;
+
+    private static Weapon<Hammer> weaponDrop = new Hammer();
+    private static Armour<Cloak> armourDrop = new Cloak();
     public Griffin(){
         x = Generator.generateRandomNumber(0,15);
         y = Generator.generateRandomNumber(0,15);
@@ -90,5 +95,14 @@ public class Griffin implements Enemy {
     @Override
     public void reduceHealth(double damage) {
         this.health = this.health - damage;
+    }
+    @Override
+    public Weapon<?> weaponDrop() {
+        return weaponDrop;
+    }
+
+    @Override
+    public Armour<?> armourDrop() {
+        return armourDrop;
     }
 }

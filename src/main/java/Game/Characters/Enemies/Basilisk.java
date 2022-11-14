@@ -1,15 +1,21 @@
 package Game.Characters.Enemies;
 
 import Game.Characters.Enemy;
-import Game.Items.Item;
+import Game.Items.Armours.Boots;
+import Game.Items.*;
+import Game.Items.Weapons.Bow;
 import Game.Utilities.Generator;
 import Structures.Pair;
 
 public class Basilisk implements Enemy {
     private final int moves, range, vision;
-
     private int x,y;
     private double health, attack, defense, tier, spawnRate;
+
+    private static Weapon<Bow> weaponDrop = new Bow();
+    private static Armour<Boots> armourDrop = new Boots();
+
+
     public Basilisk(){
         x = Generator.generateRandomNumber(0,15);
         y = Generator.generateRandomNumber(0,15);
@@ -81,6 +87,17 @@ public class Basilisk implements Enemy {
     public Item<? extends Item<?>>[] drops() {
         return new Item[0];
     }
+
+    @Override
+    public Weapon<?> weaponDrop() {
+        return weaponDrop;
+    }
+
+    @Override
+    public Armour<?> armourDrop() {
+        return armourDrop;
+    }
+
     @Override
     public void updateCoordinates(int x, int y) {
         this.x = x+this.x;
