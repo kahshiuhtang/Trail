@@ -74,5 +74,43 @@
   * Equipped: Always false
   * StorageSize: Will always be 1
   * Rarity: What percentage will
+### User Classes:
+* Archer:
+  * moves = 3;
+  * health = 16;
+  * attack = 6;
+  * range = 8;
+  * critChance = 0.1;
+  * defense = 0.2;
+* Giant:
+  * moves = 2;
+  * health = 32;
+  * attack = 8;
+  * range = 2;
+  * critChance = 0.7;
+  * defense = 0.8;
+* Swordsman:
+  * moves = 6;
+  * health = 25;
+  * attack = 4;
+  * range = 3;
+  * critChance = 0.5;
+  * defense = 0.5;
+### Boss Stats:
 
+### Computer Strategy
+* **Archer**
+  * Computer will always attempt to kill the other player and collect weapons/armour
+    * Due to the low crit/defense stat of the Archer, it can only run away and attack
+  * Due to the range of the Archer, it will be hard for the player to escape without engaging to fight the Archer
+  * 
+* **Giant**
+  * Computer will attempt to run around and kill the bosses
+  * If the bosses are far apart, this AI may attempt to collect berries if they are rather close
+  * However, due to its slow speed, matchup is basically impossible to beat against Archer
+  * Game ending will purely be decided by chance
+* **Swordsman**
+  * Computer will attempt to run around and collect the berries as its first priority
+  * In the matchup with an Archer, the computer may attempt to kill the Archer as it as the speed and crit/damage/defense to tank against the Archer
+  * Is unable to fend off the Giant due to its higher crit/damage/defense
 

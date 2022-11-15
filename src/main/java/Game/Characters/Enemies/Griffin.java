@@ -11,7 +11,7 @@ public class Griffin implements Enemy {
     private final int moves, range, vision;
 
     private int x,y;
-    private double health, attack, defense, tier, spawnRate;
+    private double health, attack, defense, tier, spawnRate, critChance;
 
     private static Weapon<Hammer> weaponDrop = new Hammer();
     private static Armour<Cloak> armourDrop = new Cloak();
@@ -104,5 +104,9 @@ public class Griffin implements Enemy {
     @Override
     public Armour<?> armourDrop() {
         return armourDrop;
+    }
+    @Override
+    public double critChance() {
+        return critChance;
     }
 }

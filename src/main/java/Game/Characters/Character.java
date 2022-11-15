@@ -4,6 +4,8 @@ import Game.Items.Item;
 import Structures.Pair;
 
 public interface Character<T>{
+
+    public double critChance();
     /*
     * How many spaces does the character have in a turn
     * Normal: 3

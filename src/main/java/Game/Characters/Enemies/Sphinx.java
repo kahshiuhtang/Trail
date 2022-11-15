@@ -11,7 +11,7 @@ public class Sphinx implements Enemy {
     private final int moves, range, vision;
 
     private int x,y;
-    private double health, attack, defense, tier, spawnRate;
+    private double health, attack, defense, tier, spawnRate, critChance;
 
     private static Weapon<Bow> weaponDrop = new Bow();
     private static Armour<Leggings> armourDrop = new Leggings();
@@ -104,5 +104,9 @@ public class Sphinx implements Enemy {
     @Override
     public Armour<?> armourDrop() {
         return armourDrop;
+    }
+    @Override
+    public double critChance() {
+        return critChance;
     }
 }

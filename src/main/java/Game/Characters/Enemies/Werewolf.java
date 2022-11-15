@@ -12,7 +12,7 @@ public class Werewolf implements Enemy {
 
     private final int moves, range, vision;
     private int x,y;
-    private double health, attack, defense, tier, spawnRate;
+    private double health, attack, defense, tier, spawnRate, critChance;
     private static Weapon<Hammer> weaponDrop = new Hammer();
     private static Armour<Gloves> armourDrop = new Gloves();
     public Werewolf(){
@@ -106,5 +106,9 @@ public class Werewolf implements Enemy {
     @Override
     public void reduceHealth(double damage) {
         this.health = this.health - damage;
+    }
+    @Override
+    public double critChance() {
+        return critChance;
     }
 }

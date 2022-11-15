@@ -9,7 +9,7 @@ public class Giant implements User {
     private final int moves, range;
 
     private int x,y;
-    private double health, attack, defense;
+    private double health, attack, defense, critChance;
     private Item<?>[] storage;
 
     public Giant(){
@@ -19,7 +19,8 @@ public class Giant implements User {
         health = 32;
         attack = 8;
         range = 2;
-        defense = 3;
+        critChance = 0.7;
+        defense = 0.8;
     }
     @Override
     public int getMoves() {
@@ -64,5 +65,9 @@ public class Giant implements User {
     @Override
     public void reduceHealth(double damage) {
             this.health = this.health - damage;
+    }
+    @Override
+    public double critChance() {
+        return critChance;
     }
 }

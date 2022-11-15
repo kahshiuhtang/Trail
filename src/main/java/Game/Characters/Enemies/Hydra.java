@@ -11,7 +11,7 @@ public class Hydra implements Enemy {
     private final int moves, range, vision;
 
     private int x,y;
-    private double health, attack, defense, tier, spawnRate;
+    private double health, attack, defense, tier, spawnRate, critChance;
     private static Weapon<Sword> weaponDrop = new Sword();
     private static Armour<Helmet> armourDrop = new Helmet();
     public Hydra(){
@@ -103,5 +103,9 @@ public class Hydra implements Enemy {
     @Override
     public Armour<?> armourDrop() {
         return armourDrop;
+    }
+    @Override
+    public double critChance() {
+        return critChance;
     }
 }

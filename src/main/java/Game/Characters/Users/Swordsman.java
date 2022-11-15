@@ -10,17 +10,18 @@ public class Swordsman implements User {
         private final int moves, range;
 
         private int x,y;
-        private double health, attack, defense;
+        private double health, attack, defense, critChance;
         private Item<?>[] storage;
 
         public Swordsman(){
             x = Generator.generateRandomNumber(0,15);
             y = Generator.generateRandomNumber(0,15);
-            moves = 4;
-            health = 20;
+            moves = 6;
+            health = 25;
             attack = 4;
             range = 3;
-            defense = 5;
+            critChance = 0.5;
+            defense = 0.5;
         }
         @Override
         public int getMoves() {
@@ -66,6 +67,10 @@ public class Swordsman implements User {
     @Override
     public void reduceHealth(double damage) {
         this.health = this.health - damage;
+    }
+    @Override
+    public double critChance() {
+        return critChance;
     }
 }
 

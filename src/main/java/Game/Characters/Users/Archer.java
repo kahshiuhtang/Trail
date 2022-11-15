@@ -9,7 +9,7 @@ public class Archer implements User {
 
     private final int moves, range;
     private int x,y;
-    private double health, attack, defense;
+    private double health, attack, defense, critChance;
     private Item<?>[] storage;
 
     public Archer(){
@@ -17,9 +17,10 @@ public class Archer implements User {
         y = Generator.generateRandomNumber(0,15);
         moves = 3;
         health = 16;
-        attack = 4;
-        range = 6;
-        defense = 2;
+        attack = 6;
+        range = 8;
+        critChance = 0.1;
+        defense = 0.2;
     }
     @Override
     public int getMoves() {
@@ -64,5 +65,9 @@ public class Archer implements User {
     @Override
     public void reduceHealth(double damage) {
         this.health = this.health - damage;
+    }
+    @Override
+    public double critChance() {
+        return critChance;
     }
 }

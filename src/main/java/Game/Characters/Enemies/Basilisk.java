@@ -10,7 +10,7 @@ import Structures.Pair;
 public class Basilisk implements Enemy {
     private final int moves, range, vision;
     private int x,y;
-    private double health, attack, defense, tier, spawnRate;
+    private double health, attack, defense, tier, spawnRate, critChance;
 
     private static Weapon<Bow> weaponDrop = new Bow();
     private static Armour<Boots> armourDrop = new Boots();
@@ -23,7 +23,7 @@ public class Basilisk implements Enemy {
         range = 5;
         health = 20.0;
         attack = 12.0;
-        defense = 8.0;
+        defense = 0.0;
         vision = 3;
         tier = 3;
         spawnRate = 0.2;
@@ -107,5 +107,9 @@ public class Basilisk implements Enemy {
     @Override
     public void reduceHealth(double damage) {
         this.health = this.health - damage;
+    }
+    @Override
+    public double critChance() {
+        return critChance;
     }
 }
