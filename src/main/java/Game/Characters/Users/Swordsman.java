@@ -1,7 +1,9 @@
 package Game.Characters.Users;
 
 import Game.Characters.User;
-import Game.Items.Item;
+import Game.Items.Armour;
+import Game.Items.Boost;
+import Game.Items.Weapon;
 import Game.Utilities.Generator;
 import Structures.Pair;
 
@@ -11,7 +13,9 @@ public class Swordsman implements User {
 
         private int x,y;
         private double health, attack, defense, critChance;
-        private Item<?>[] storage;
+        private Weapon<?> weapon;
+        private Armour<Armour<?>>[] armour;
+        private Boost[] boost;
 
         public Swordsman(){
             x = Generator.generateRandomNumber(0,15);
@@ -48,11 +52,6 @@ public class Swordsman implements User {
             return defense;
         }
 
-        @Override
-        public Item<?>[] getStorage() {
-            return storage;
-        }
-
     @Override
     public Pair<Integer> getCoordinates() {
         return new Pair<Integer>(x,y);
@@ -71,6 +70,18 @@ public class Swordsman implements User {
     @Override
     public double critChance() {
         return critChance;
+    }
+    @Override
+    public Weapon<?> getWeapon() {
+        return weapon;
+    }
+    @Override
+    public Armour<Armour<?>>[] getArmour() {
+        return armour;
+    }
+    @Override
+    public Boost[] getBoost() {
+        return boost;
     }
 }
 

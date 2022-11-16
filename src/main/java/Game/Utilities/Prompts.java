@@ -102,4 +102,10 @@ public class Prompts {
         System.out.print(Color.RESET);
         System.out.println();
     }
+    public static void whichBoosts(){
+        System.out.println("Which Boost Would You Like To Use?");
+        System.out.println("1: Health");
+        System.out.println("2: Damage");
+        System.out.println("3: Speed");
+    }
 }

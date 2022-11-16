@@ -29,11 +29,8 @@ public interface Character<T>{
      */
     public double getDefense();
     /*
-     * What items are held by the player:
-     * Max storage is different for every player, depends on class
+     * Coordinates for where each character is located
      */
-    public Item<?>[] getStorage();
-
     public Pair<Integer> getCoordinates();
 
     public void updateCoordinates(int x, int y);

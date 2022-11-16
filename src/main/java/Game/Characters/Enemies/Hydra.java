@@ -50,12 +50,6 @@ public class Hydra implements Enemy {
     public double getDefense() {
         return defense;
     }
-
-    @Override
-    public Item<?>[] getStorage() {
-        return new Item[0];
-    }
-
     @Override
     public Pair<Integer> getCoordinates() {
         return new Pair<Integer>(x,y);

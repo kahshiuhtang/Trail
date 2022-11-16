@@ -11,10 +11,9 @@ public class Basilisk implements Enemy {
     private final int moves, range, vision;
     private int x,y;
     private double health, attack, defense, tier, spawnRate, critChance;
-
+    
     private static Weapon<Bow> weaponDrop = new Bow();
     private static Armour<Boots> armourDrop = new Boots();
-
 
     public Basilisk(){
         x = Generator.generateRandomNumber(0,15);
@@ -52,12 +51,6 @@ public class Basilisk implements Enemy {
     public double getDefense() {
         return defense;
     }
-
-    @Override
-    public Item<?>[] getStorage() {
-        return new Item[0];
-    }
-
     @Override
     public Pair<Integer> getCoordinates() {
         return new Pair<Integer>(x,y);

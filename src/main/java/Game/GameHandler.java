@@ -26,19 +26,21 @@ public class GameHandler {
            while(userTurn){
                m.printGameStatus(user.getCoordinates(), opponent.getCoordinates());
                String s = scanner.nextLine();
-               int x = Integer.parseInt(s.substring(1,3));
-               int y = Integer.parseInt(s.substring(3,5));
-               System.out.println(x + "" + y);
               try{
                   switch(s.substring(0,1)){
                       case "A":
-                          attack(new Pair<Integer>(x,y));
-                          break;
+                        int x = Integer.parseInt(s.substring(1,3));
+                        int y = Integer.parseInt(s.substring(3,5));
+                        attack(new Pair<Integer>(x,y));
+                        break;
                       case "U":
-                          break;
+                        
+                        break;
                       case "M":
-                          moveUser(x,y);
-                          break;
+                        x = Integer.parseInt(s.substring(1,3));
+                        y = Integer.parseInt(s.substring(3,5));
+                        moveUser(x,y);
+                        break;
                       case "E":
                           changeTurn();
                           break;
