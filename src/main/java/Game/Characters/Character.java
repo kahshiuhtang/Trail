@@ -1,6 +1,4 @@
 package Game.Characters;
-
-import Game.Items.Item;
 import Structures.Pair;
 
 public interface Character<T>{

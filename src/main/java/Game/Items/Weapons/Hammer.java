@@ -5,7 +5,7 @@ import Game.Items.Weapon;
 public class Hammer implements Weapon<Hammer> {
     private final boolean equipped, booster;
     private final int storageSize;
-    private final double damageBoost, critChance, boost, rarity;
+    private final double damageBoost, critChance, boost, rarity, rangeIncrease;
     public Hammer(){
         equipped = false;
         booster = false;
@@ -14,6 +14,7 @@ public class Hammer implements Weapon<Hammer> {
         critChance = 0.6;
         boost = 2.0;
         rarity = 0.3;
+        rangeIncrease = 0;
     }
     @Override
     public boolean getEquipped() {
@@ -52,5 +53,9 @@ public class Hammer implements Weapon<Hammer> {
     @Override
     public double getBoost() {
         return boost;
+    }
+    @Override
+    public double getRangeIncrease() {
+        return rangeIncrease;
     }
 }

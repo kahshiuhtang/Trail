@@ -17,5 +17,9 @@ public interface Weapon<T> extends Item<T>{
      * Will have double the stats if certain class is using it.
      */
     public double getBoost();
+    /*
+     * Does weapon increase your range
+     */
+    public double getRangeIncrease();
 
 }
