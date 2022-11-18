@@ -1,21 +1,32 @@
 package Game.Items.Boosts;
 
-public class Health implements Boosts{
+public class Health implements Boosts<Health>{
+    private final int dIncrease = 0;
+    private final int sIncrease = 0;
+    private final int hIncrease = 5;
+    private final double rarity = 0.5;
     @Override
     public double damageIncrease() {
-        // TODO Auto-generated method stub
-        return 0;
+        return dIncrease;
     }
 
     @Override
     public double speedIncrease() {
-        // TODO Auto-generated method stub
-        return 0;
+        return sIncrease;
     }
 
     @Override
     public double healthIncrease() {
-        // TODO Auto-generated method stub
-        return 0;
+        return hIncrease;
+    }
+
+    @Override
+    public double rarity() {
+        return rarity;
+    }
+
+    @Override
+    public Health getItem() {
+        return new Health();
     }
 }

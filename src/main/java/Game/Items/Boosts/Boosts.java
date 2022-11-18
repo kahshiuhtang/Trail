@@ -1,6 +1,7 @@
 package Game.Items.Boosts;
+import Game.Items.Item;
 
-public interface Boosts {
+public interface Boosts<T> extends Item<T>{
 
     public double damageIncrease();
 

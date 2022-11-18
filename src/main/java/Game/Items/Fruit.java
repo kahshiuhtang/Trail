@@ -16,16 +16,6 @@ public enum Fruit implements Item<Fruit> {
     }
 
     @Override
-    public boolean getEquipped() {
-        return false;
-    }
-
-    @Override
-    public int getStorageSize() {
-        return 1;
-    }
-
-    @Override
     public double rarity() {
         return rarity;
     }
