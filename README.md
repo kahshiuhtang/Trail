@@ -1,5 +1,5 @@
 # Trail
-### 2D Grid Based Game with Custom Data Structure and Algorithms
+### 2D Grid Based Game
 
 ### Gameplay:
 
